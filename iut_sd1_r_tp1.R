@@ -1,0 +1,43 @@
+data(iris)
+class(iris)
+View(iris)
+nrow(iris)
+ncol(iris)
+colnames(iris)
+View(summary(iris))
+iris[c("Sepal.Length", "Species")]
+iris[c(100,103,105),]
+iris[c(50:100),]
+mean(iris$Sepal.Length)
+median(iris$Sepal.Width)
+sd(iris$Sepal.Length)
+quantile(iris$Sepal.Width, probs = seq(from = 0.1, to = 0.9, by =0.1))
+
+anime <- read.csv("L:/BUT/SD/Promo 2023/bfontaine/R/CSV/anime.csv", header = TRUE, sep = ",", dec = ".")
+manga <- read.csv("L:/BUT/SD/Promo 2023/bfontaine/R/CSV/manga.csv", header = TRUE, sep = ",", dec = ".")
+class(anime)
+class(manga)
+View(anime)
+View(manga)
+dim(anime)
+dim(manga)
+mean(anime$Score)
+mean(manga$Score)
+if ((mean(anime$Score) > mean(manga$Score)) == TRUE) {print("la moyenne du score des animes est supérieur")
+}else {print("la moyenne du score des mangas est supérieur")}
+sum(anime$Vote)
+sum(manga$Vote)
+sd(anime$Score)
+sd(manga$Score)
+if ((sd(anime$Score) > sd(manga$Score)) == TRUE) {print("l'échantillon le plus homogènes au niveau des Score est les manga")
+}else {print("l'échantillon le plus homogènes au niveau des Score est les anime")}
+anim_quant=quantile(anime$Score, probs = seq(from = 0.1, to = 0.9, by = 0.1))
+mang_quant=quantile(manga$Score, probs = seq(from = 0.1, to = 0.9, by = 0.1))
+if ((anim_quant[1] > mang_quant[1]) == TRUE) {print("les manga a le décile 1 le plus petit")
+}else {print("les anime a le décile 1 le plus petit")}
+extraction1 <- subset(manga, Score > 9)
+nrow(extraction1)
+extraction2 <- subset(manga, Vote >= 200000)
+nrow(extraction2)
+extraction3 <- subset(manga, Vote > 200000 & Score > 8)
+nrow(extraction3)
